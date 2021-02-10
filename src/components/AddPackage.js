@@ -3,7 +3,7 @@ import {isAuthenticate} from "../services/UserService";
 import "mdbreact/dist/css/mdb.css";
 import {createPackage} from "../services/AdminService";
 import {MDBContainer, MDBRow, MDBCol, MDBBtn, MDBCard, MDBCardBody} from 'mdbreact';
-import {confirmAlert} from "react-confirm-alert";
+import swal from 'sweetalert';
 
 const AddPackage = () => {
     const {user, token} = isAuthenticate();
@@ -74,46 +74,46 @@ const AddPackage = () => {
                             createProduct: data.name,
                             formData: new FormData()
                         });
-                        confirmAlert({
-                            title: 'New package is created successfully!',
-                            buttons: [
-                                {
-                                    label: 'OK',
-                                }
-                            ]
+                        swal({
+                            title: "Good job!",
+                            text: "New Package Created Successfully!",
+                            icon: "success",
+                            button: "OK",
+                        }).then(() => {
+
                         });
                     }
                 });
         } else {
-            confirmAlert({
-                title: 'Please upload an image!',
-                buttons: [
-                    {
-                        label: 'OK',
-                    }
-                ]
+            swal({
+                title: "Attention!",
+                text: "Please upload an image!",
+                icon: "warning",
+                button: "OK",
+            }).then(() => {
+                setLoader(false);
             });
-            setLoader(false);
         }
 
     };
 
     const showErrorMsg = () => {
         if (error) {
-            confirmAlert({
-                title: error,
-                buttons: [
-                    {
-                        label: 'OK',
-                    }
-                ]
+            swal({
+                title: "Attention!",
+                text: error,
+                icon: "warning",
+                button: "OK",
+            }).then(() => {
+
             });
         }
     };
 
     const newPostForm = () => (
         <div className="mb-5">
-            <MDBContainer className="mt-5">
+            <h3 className="font-weight-bold mt-4" align="center">Add a Package</h3>
+            <MDBContainer className="mt-4">
                 <MDBRow>
                     <MDBCol md="12" lg="12" sm="12">
                         {showErrorMsg()}
@@ -220,7 +220,7 @@ const AddPackage = () => {
 
                                     <div className="text-center py-4 mt-3">
                                         <MDBBtn className="btn btn-blue" type="submit"
-                                                disabled={loader}>{loader ? 'Loading...' : 'Add Product'}
+                                                disabled={loader}>{loader ? 'Loading...' : 'Add Package'}
                                         </MDBBtn>
                                     </div>
                                 </form>

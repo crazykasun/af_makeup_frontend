@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {getUser, isAuthenticate} from "../services/UserService";
-import PackageCard from "./PackageCard";
+import BookedCard from "./BookedCard";
 
 const BookedPackages = () => {
 
@@ -17,8 +17,6 @@ const BookedPackages = () => {
                 if (data.error) {
                     console.log(data.error);
                 } else {
-                    console.log("registered Packages!");
-                    console.log(data.pack);
                     setPacks(data.pack);
                 }
             })
@@ -36,14 +34,19 @@ const BookedPackages = () => {
     };
 
     return (
-        <div>
-            <div className="row">
-                {checkPackages()}
-                {packs.map((pack, i) => (
-                    <div key={i} className="col-md-6 col-lg-3 col-xs-3 col-sm-6 mb-3">
-                        <PackageCard pack={pack.pack}/>
+        <div className="mt-4">
+            <div className="shopping-grid">
+                <div className="container-fluid">
+                    <h3 className="font-weight-bold mb-4" align="center">BOOKED PACKAGES</h3>
+                    <div className="row">
+                        {checkPackages()}
+                        {packs.map((pack, i) => (
+                            <div key={i} className="col-md-12 col-lg-4 col-xs-4 col-sm-12 mb-3">
+                                <BookedCard pack={pack.pack} total={pack.total}/>
+                            </div>
+                        ))}
                     </div>
-                ))}
+                </div>
             </div>
         </div>
     )

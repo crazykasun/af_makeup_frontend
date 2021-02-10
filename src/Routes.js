@@ -11,6 +11,7 @@ import AddPackage from "./components/AddPackage";
 import ViewPackages from "./components/ViewPackages";
 import Package from "./components/Package";
 import BookedPackages from "./components/BookedPackages";
+import PrivateRoute from "./auth/PrivateRoute";
 
 const Routes = () => {
     return (
@@ -21,7 +22,7 @@ const Routes = () => {
                 <Route path="/login" exact component={Login}/>
                 <Route path="/signup" exact component={SignUp}/>
                 <Route path="/view" exact component={ViewPackages}/>
-                <Route path="/booked" exact component={BookedPackages}/>
+                <PrivateRoute path="/booked" exact component={BookedPackages}/>
                 <Route path="/package/:packageId" exact component={Package} />
                 <AdminRoute path="/admin/create" exact component={AddAdmin} />
                 <AdminRoute path="/create/product" exact component={AddPackage} />
