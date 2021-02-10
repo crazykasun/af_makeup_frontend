@@ -14,7 +14,7 @@ const AddPackage = () => {
         price: '0.00',
         quantity: '0',
         image: '',
-        loading: false,
+        duration: 0,
         discount: '0.00',
         error: false,
         createdPackage: false,
@@ -28,7 +28,7 @@ const AddPackage = () => {
         description,
         price,
         quantity,
-        loading,
+        duration,
         discount,
         error,
         createdPackage,
@@ -67,7 +67,7 @@ const AddPackage = () => {
                             image: '',
                             price: '',
                             quantity: '',
-                            loading: false,
+                            duration: '',
                             discount: '',
                             error: false,
                             showSuccess: true,
@@ -203,6 +203,19 @@ const AddPackage = () => {
                                         onChange={handleOnChange('quantity')}
                                         className="form-control"
                                         value={quantity}
+                                    />
+                                    <br/>
+                                    <label
+                                        htmlFor="defaultFormCardNameEx"
+                                        className="grey-text font-weight-light"
+                                    >
+                                        Duration
+                                    </label>
+                                    <input
+                                        type="number"
+                                        onChange={handleOnChange('duration')}
+                                        className="form-control"
+                                        value={duration}
                                     />
 
                                     <div className="text-center py-4 mt-3">

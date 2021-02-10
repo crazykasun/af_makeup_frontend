@@ -19,7 +19,7 @@ const Header = ({history}) => {
                     <Link className="nav-link" style={isActive(history, '/')} to="/">Home</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" style={isActive(history, '/view')} to="/view">Booked Packages</Link>
+                    <Link className="nav-link" style={isActive(history, '/booked')} to="/booked">Booked Packages</Link>
                 </li>
 
                 {isAuthenticate() && isAuthenticate().user.role === 1 && (
