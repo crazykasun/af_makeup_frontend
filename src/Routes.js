@@ -5,6 +5,8 @@ import SignUp from "./components/Signup";
 import Home from "./components/Home";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
+import AdminRoute from "./auth/AdminRoute";
+import AddAdmin from "./components/AddAdmin";
 
 const Routes = () => {
     return (
@@ -14,6 +16,7 @@ const Routes = () => {
                 <Route path="/" exact component={Home}/>
                 <Route path="/login" exact component={Login}/>
                 <Route path="/signup" exact component={SignUp}/>
+                <AdminRoute path="/create/admin" exact component={AddAdmin} />
             </Switch>
             <Footer/>
         </BrowserRouter>
