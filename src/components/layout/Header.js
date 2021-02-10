@@ -30,7 +30,7 @@ const Header = ({history}) => {
                             </span>
                         <ul className="dropdown-menu mt-2" aria-labelledby="navbarScrollingDropdown">
                             <li className="nav-item">
-                                <Link className="nav-link bg-dark" style={isActive(history, '/admin/addpack')} to="/admin/addpack">Add Packages</Link>
+                                <Link className="nav-link bg-dark" style={isActive(history, '/create/product')} to="/create/product">Add Packages</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link bg-dark" style={isActive(history, '/admin/create')} to="/admin/create">Create Admin</Link>
